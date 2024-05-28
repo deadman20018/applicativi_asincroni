@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzeria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .pizza-list, .order-status {
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .pizza-list button, .order-status button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: #ffffff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .pizza-list button:hover, .order-status button:hover {
+            background-color: #0056b3;
+        }
+        .order-status p, .order-status ul {
+            font-size: 1.2em;
+        }
+        .order-status ul {
+            list-style: none;
+            padding: 0;
+        }
+        .order-status ul li {
+            margin: 5px 0;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Benvenuti alla Pizzeria!</h1>
+    </header>
+    <div class="container">
+        <div class="pizza-list">
+            <div>
+                <button onclick="addPizzaToOrder('Margherita')">Margherita</button>
+                <button onclick="addPizzaToOrder('Diavola')">Diavola</button>
+                <button onclick="addPizzaToOrder('Quattro Stagioni')">Quattro Stagioni</button>
+            </div>
+            <button onclick="showOrderMenu()">Ordina Multiple Pizze</button>
+        </div>
+        <div class="order-status">
+            <h2>Stato Ordine</h2>
+            <p id="orderMessage">Nessun ordine effettuato.</p>
+            <div id="orderMenu" class="hidden">
+                <h3>Conferma Ordine</h3>
+                <ul id="orderList"></ul>
+                <button onclick="confirmOrder()">Conferma Ordine</button>
+                <button onclick="cancelOrder()">Annulla</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="pizza.js"></script>
+</body>
+</html>
