@@ -9,7 +9,7 @@ document.getElementById('show-all-button').addEventListener('click', function() 
       .then(data => {
         const booksList = document.getElementById('books-list');
         const books = Array.isArray(data.data) ? data.data : [data.data];
-        booksList.innerHTML = ''; // Clear existing list
+        booksList.innerHTML = '';
         books.forEach(book => {
           const formattedBook = {
             title: book.Title,
@@ -33,7 +33,12 @@ document.getElementById('show-all-button').addEventListener('click', function() 
         });
       })
       .catch(error => {
+        const booksList = document.getElementById('books-list');
+        const listItem = document.createElement('li');
+        listItem.innerHTML = 'Ci è stato un problema con la connessione al server, error';
+        booksList.appendChild(listItem);
         console.error('Ci è stato un problema con la operazione di fetch:', error);
       });
   });
   
+
